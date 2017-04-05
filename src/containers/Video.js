@@ -5,7 +5,7 @@ import Video from '../components/Video.jsx'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    videoId: state.randomVideo.video && state.randomVideo.video.id,
+    videoId: ownProps.match.params.videoId,
     isFetching: state.randomVideo.isFetching,
     currentSongs: state.savedVideo.currentSongs
   }

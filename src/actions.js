@@ -1,5 +1,6 @@
 import request from 'superagent'
 import jsonp from 'superagent-jsonp'
+import { push } from 'react-router-redux'
 
 export const REQUEST_VIDEO = 'REQUEST_VIDEO'
 export const RECEIVE_VIDEO = 'RECEIVE_VIDEO'
@@ -12,10 +13,13 @@ function requestVideo() {
 }
 
 function receiveVideo(video) {
-  return {
-    type: RECEIVE_VIDEO,
-    video,
-    receivedAt: Date.now()
+  return dispatch => {
+    dispatch(push(`/video/${video.id}`))
+    return {
+      type: RECEIVE_VIDEO,
+      video,
+      receivedAt: Date.now()
+    }
   }
 }
 

@@ -4,7 +4,6 @@ import consolidate from 'consolidate'
 
 import React from 'react';
 import { renderToString } from 'react-dom/server'
-import { StaticRouter } from 'react-router'
 import Application from './Application'
 
 const app = express()
@@ -95,9 +94,7 @@ app.get('/api', function (req, res) {
 
 app.get('*', (req, res) => {
   const markup = renderToString(
-    <StaticRouter location={req.url}>
-      <Application />
-    </StaticRouter>
+    <Application />
   )
   return res.render('index', { markup });
 })

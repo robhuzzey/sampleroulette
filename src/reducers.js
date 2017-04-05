@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
 import {
   REQUEST_VIDEO,
   RECEIVE_VIDEO,
@@ -51,7 +52,8 @@ function savedVideo(state = {}, action) {
 
 const rootReducer = combineReducers({
   randomVideo,
-  savedVideo
+  savedVideo,
+  routing: routerReducer
 })
 
 export default rootReducer
